@@ -122,7 +122,7 @@
 
     /* ── CONTROLS ── */
     .panel { display:flex; flex-direction:column; gap:7px; }
-    .ctrl { padding:9px 12px; border:none; border-radius:14px; color:#fff; font-size:12.5px; font-family:'Work Sans','Noto Sans Thai',sans-serif; background:rgba(255,255,255,.11); text-align:left; border:1px solid rgba(255,255,255,.18); transition:all .14s ease; text-decoration:none; display:block; font-weight:500; }
+    .ctrl { padding:9px 12px; border:none; border-radius:14px; color:#fff; font-size:12.5px; font-family:'Work Sans', sans-serif; background:rgba(255,255,255,.11); text-align:left; border:1px solid rgba(255,255,255,.18); transition:all .14s ease; text-decoration:none; display:block; font-weight:500; }
     .ctrl:hover { background:rgba(255,255,255,.20); transform:translateY(-1px); box-shadow:0 3px 12px rgba(0,0,0,.14); }
     .ctrl:active { transform:translateY(0); }
     .ctrl.delete-btn { background:rgba(255,80,80,.17); border-color:rgba(255,100,100,.32); color:#ffc8c8; }
@@ -149,9 +149,9 @@
 
     /* ── INPUTS ── */
     input[type="color"] { border:none; width:38px; height:24px; background:none; padding:0; border-radius:8px; }
-    select, input[type="number"] { border-radius:10px; border:1px solid rgba(255,255,255,.20); background:rgba(0,0,0,.20); color:#fff; padding:5px 7px; outline:none; font-family:'Work Sans','Noto Sans Thai',sans-serif; font-size:11.5px; }
+    select, input[type="number"] { border-radius:10px; border:1px solid rgba(255,255,255,.20); background:rgba(0,0,0,.20); color:#fff; padding:5px 7px; outline:none; font-family:'Work Sans', sans-serif; font-size:11.5px; }
     .extra-input-label { font-size:11.5px; font-weight:600; color:#fff; opacity:.82; margin-bottom:3px; }
-    .extra-input { width:100%; min-height:60px; resize:vertical; border-radius:13px; border:1px solid rgba(255,255,255,.20); background:rgba(0,0,0,.16); color:#fff; padding:8px 11px; outline:none; box-sizing:border-box; font-family:'Work Sans','Noto Sans Thai',sans-serif; font-size:12px; line-height:1.4; }
+    .extra-input { width:100%; min-height:60px; resize:vertical; border-radius:13px; border:1px solid rgba(255,255,255,.20); background:rgba(0,0,0,.16); color:#fff; padding:8px 11px; outline:none; box-sizing:border-box; font-family:'Work Sans', sans-serif; font-size:12px; line-height:1.4; }
     .extra-input:focus { border-color:rgba(168,237,206,.45); background:rgba(0,0,0,.24); }
     .extra-input::placeholder { color:rgba(255,255,255,.36); }
     .link-note { font-size:10.5px; opacity:.60; line-height:1.45; }
@@ -174,10 +174,10 @@
   <div id="startScreen">
     <div class="start-content">
       <img class="start-logo" src="images/logo.png" alt="LocalLoop BKK" onerror="this.style.display='none'">
-      <div class="start-title">🌿 Design Your Dream<br>Public Park</div>
-      <div class="start-sub">Place furniture, add trees, and create green spaces.</div>
+      <div class="start-title">🌿 Design Your Dream<br>Park</div>
+      <div class="start-sub">Place furniture, add trees, create green spaces</div>
       <button id="btn_start">✨ Start</button>
-      <div class="start-hint">Double-click on the ground to place objects.</div>
+      <div class="start-hint">Double-click on the area to place an object</div>
     </div>
   </div>
 
@@ -196,13 +196,13 @@
 
     <div class="panel">
       <button class="ctrl" id="btn_music">🔇 Sound: Off</button>
-      <button class="ctrl" id="btn_snap">📷 Save Screenshot</button>
+      <button class="ctrl" id="btn_snap">📷 Take Screenshot</button>
       <div>
         <div class="extra-input-label">Additional Feedback</div>
         <textarea id="additionalInfo" class="extra-input" placeholder="Type your comments here..."></textarea>
       </div>
       <button class="ctrl accent-btn" id="btn_submit">✔ Submit Data</button>
-      <a class="ctrl" href="gallery.html">🖼 View All Works</a>
+      <a class="ctrl" href="gallery.html">🖼 View All Designs</a>
       
       <button class="ctrl" id="btn_toggle_tree">🌳 Hide Original Trees</button>
 
@@ -218,7 +218,7 @@
       <button class="ctrl delete-btn" id="btn_delete_sel">🗑 Delete Object</button>
       <div class="prop-panel" style="display:flex;margin-top:3px">
         <div class="prop-row"><span>🎨 Color</span><input type="color" id="objColor" value="#ffffff"></div>
-        <div class="prop-row" style="margin-top:5px"><span>📏 Scale</span><input type="number" id="objScale" step="0.1" value="1.0" style="width:64px"></div>
+        <div class="prop-row" style="margin-top:5px"><span>📏 Size</span><input type="number" id="objScale" step="0.1" value="1.0" style="width:64px"></div>
       </div>
     </div>
 
@@ -235,9 +235,9 @@
         <label style="display:flex;align-items:center;gap:5px;margin-bottom:4px">
           <span>Axis:</span>
           <select id="rotAxis" style="flex:1">
-            <option value="z">Left-Right (Z)</option>
-            <option value="y">Up-Down (Y)</option>
-            <option value="x">Tilt (X)</option>
+            <option value="z">Pan L-R (Z)</option>
+            <option value="y">Tilt U-D (Y)</option>
+            <option value="x">Roll (X)</option>
           </select>
         </label>
         <div><b>Angle (<span id="axisLabel">Z</span>):</b> <span id="rotDeg" style="color:var(--accent)">0°</span></div>
@@ -257,18 +257,1088 @@
 
     <div class="status" id="statusBox">
       <div>📦 <b>Total Placed:</b> <span id="totalPlaced" style="color:var(--accent);font-weight:700">0</span></div>
-      <div>⊞ <b>Grid Size:</b> <span id="gridSizeLabel">20</span> Cells</div>
+      <div>⊞ <b>Grid Size:</b> <span id="gridSizeLabel">20</span> units</div>
     </div>
   </aside>
 
   <div id="container" class="pad-left pad-right"></div>
 
   <script type="module">
-    // ... (Three.js scripts remain largely the same, but you may want to update dynamic labels in the JS section too)
-    // For example:
-    // btnMusic.textContent = isMusicPlaying ? '🎵 Sound: On' : '🔇 Sound: Off';
-    // document.getElementById('btn_toggle_tree').textContent = isTreeVisible ? '🌳 Hide Original Trees' : '🌳 Show Original Trees';
-    // ...
+    import * as THREE from 'https://unpkg.com/three@0.119.1/build/three.module.js';
+    import { OrbitControls } from 'https://unpkg.com/three@0.119.1/examples/jsm/controls/OrbitControls.js';
+    import { GLTFLoader }    from 'https://unpkg.com/three@0.119.1/examples/jsm/loaders/GLTFLoader.js';
+    import { DRACOLoader }   from 'https://unpkg.com/three@0.119.1/examples/jsm/loaders/DRACOLoader.js';
+
+    /* ─ CONFIG ─ */
+    const COUNTS_GAS_ID   = 'AKfycbwjlpuyDMYdXLzPjvsbH3CCOm25nylo-HvLXhtIgpbd_nUKZzbiQI-DDhkbK2_fHQE_';
+    const COUNTS_SHEET_URL = 'https://script.google.com/macros/s/' + COUNTS_GAS_ID + '/exec';
+
+    const FEEDBACK_GAS_ID   = 'AKfycbziBkzfVnQhdSM7sUtOrF_QZvU7CiI3VZ3a6C8pfBWeBbZc17BSeXMp5SyLHk2h7F5l';
+    const FEEDBACK_SHEET_URL = 'https://script.google.com/macros/s/' + FEEDBACK_GAS_ID + '/exec';
+    const SUPABASE_KEY    = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkaHdia2NteGdpc3Fuem5yeWhwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0MjkyMzAsImV4cCI6MjA4NDAwNTIzMH0.GUppQsGOW7ypR-skf8waGSX6ouxDUnnxkY5Ep-Tn1rQ';
+    const SUPABASE_URL    = 'https://edhwbkcmxgisqnznryhp.supabase.co';
+    const SUPABASE_BUCKET = 'submissions';
+    const CITY_BASE_URL   = SUPABASE_URL + '/storage/v1/object/public/models/Models/';
+    const MODEL_BASE_URL  = SUPABASE_URL + '/storage/v1/object/public/Model_Pravet/';
+    const ICON_BASE_URL   = SUPABASE_URL + '/storage/v1/object/public/Model_Pravet/Icon/';
+
+    const GOOGLE_SHEET_LINK     = 'https://docs.google.com/spreadsheets/d/1MJIwESAxuGGwXjEZr7q7Xu9x7159SAYbDePapHdmoSs/edit?usp=sharing';
+    const CAMERA_YAW_SHEET_LINK = 'https://docs.google.com/spreadsheets/d/11TNv7OQtxeFjaMX_sUuSWH6R8Sb35GIDqsIUJs2UrVQ/edit?usp=sharing';
+
+    /* ─ START SCREEN ─ */
+    const startScreen = document.getElementById('startScreen');
+    document.getElementById('btn_start').addEventListener('click', () => {
+      startScreen.classList.add('hidden');
+      bgMusic.play().then(() => {
+        btnMusic.textContent = '🎵 Sound: On';
+        btnMusic.classList.add('music-on');
+        isMusicPlaying = true;
+      }).catch(() => {});
+    });
+
+    /* ─ MUSIC ─ */
+    const bgMusic  = document.getElementById('bgMusic');
+    const btnMusic = document.getElementById('btn_music');
+    let isMusicPlaying = false;
+    bgMusic.volume = 0.4;
+    btnMusic.addEventListener('click', () => {
+      if (isMusicPlaying) {
+        bgMusic.pause(); btnMusic.textContent = '🔇 Sound: Off'; btnMusic.classList.remove('music-on');
+      } else {
+        bgMusic.play().then(() => { btnMusic.textContent = '🎵 Sound: On'; btnMusic.classList.add('music-on'); }).catch(e => console.warn(e));
+      }
+      isMusicPlaying = !isMusicPlaying;
+    });
+
+    /* ─ BG IMAGE ─ */
+    const bgImg = new Image();
+    bgImg.crossOrigin = 'anonymous';
+    bgImg.src = 'Gemini_Generated_Image_eg5v3ceg5v3ceg5v.png';
+
+    /* ─ THREE SETUP ─ */
+    const scene  = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, 10, 10000000);
+    camera.position.set(5000, -5000, 4000); camera.up.set(0, 0, 1);
+
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const renderer = new THREE.WebGLRenderer({
+      antialias: !isMobile,
+      alpha: true,
+      logarithmicDepthBuffer: !isMobile,
+      powerPreference: 'high-performance',
+    });
+    renderer.setSize(innerWidth, innerHeight);
+    
+    // Reduce Pixel Ratio for smoother rendering
+    renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile ? 1.0 : 1.5));
+    
+    renderer.setClearColor(0x000000, 0);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    document.getElementById('container').appendChild(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping=true; controls.dampingFactor=0.08; controls.screenSpacePanning=false;
+    controls.minDistance=500; controls.maxDistance=500000; controls.maxPolarAngle=Math.PI/1.8;
+    controls.enableZoom = false; 
+
+    const _groundPlane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+    const _zoomRaycaster = new THREE.Raycaster();
+
+    renderer.domElement.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const rect = renderer.domElement.getBoundingClientRect();
+      const mouseNDC = new THREE.Vector2(((e.clientX - rect.left) / rect.width) * 2 - 1, -((e.clientY - rect.top) / rect.height) * 2 + 1);
+      _zoomRaycaster.setFromCamera(mouseNDC, camera);
+      const mouseWorld = new THREE.Vector3();
+      const hit = _zoomRaycaster.ray.intersectPlane(_groundPlane, mouseWorld);
+      const pivotPoint = hit ? mouseWorld : controls.target.clone();
+      const delta = e.deltaMode === 1 ? e.deltaY * 30 : e.deltaY;
+      const zoomFactor = Math.pow(1.001, delta); 
+      const camToPivot   = new THREE.Vector3().subVectors(camera.position,  pivotPoint);
+      const targToPivot  = new THREE.Vector3().subVectors(controls.target,  pivotPoint);
+      const newCamPos    = new THREE.Vector3().addVectors(pivotPoint, camToPivot.multiplyScalar(zoomFactor));
+      const newTarget    = new THREE.Vector3().addVectors(pivotPoint, targToPivot.multiplyScalar(zoomFactor));
+      const newDist = newCamPos.distanceTo(newTarget);
+      if (newDist >= controls.minDistance && newDist <= controls.maxDistance) {
+        camera.position.copy(newCamPos);
+        controls.target.copy(newTarget);
+      }
+      controls.update();
+    }, { passive: false });
+
+    // Handle Resize using new Pixel Ratio for smoothness
+    window.addEventListener('resize',()=>{
+      renderer.setSize(innerWidth,innerHeight);
+      renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile ? 1.0 : 1.5));
+      camera.aspect=innerWidth/innerHeight;
+      camera.updateProjectionMatrix();
+    });
+
+    function getMouseNDC(e) {
+      const r = renderer.domElement.getBoundingClientRect();
+      return new THREE.Vector2(((e.clientX-r.left)/r.width)*2-1, -((e.clientY-r.top)/r.height)*2+1);
+    }
+    function dataURLtoBlob(dataurl) {
+      const arr=dataurl.split(','), mime=arr[0].match(/:(.*?);/)[1], bstr=atob(arr[1]);
+      let n=bstr.length; const u8=new Uint8Array(n);
+      while(n--) u8[n]=bstr.charCodeAt(n);
+      return new Blob([u8],{type:mime});
+    }
+    function capturePNG() {
+      renderer.render(scene, camera);
+      const canvas=document.createElement('canvas');
+      canvas.width=renderer.domElement.width; canvas.height=renderer.domElement.height;
+      const ctx=canvas.getContext('2d');
+      if(bgImg.complete&&bgImg.naturalWidth>0){
+        const w=canvas.width,h=canvas.height,r=Math.max(w/bgImg.naturalWidth,h/bgImg.naturalHeight);
+        const nw=bgImg.naturalWidth*r,nh=bgImg.naturalHeight*r;
+        ctx.drawImage(bgImg,(w-nw)/2,(h-nh)/2,nw,nh);
+      }
+      const g=ctx.createLinearGradient(0,0,0,canvas.height);
+      g.addColorStop(0,'rgba(0,0,0,0.3)'); g.addColorStop(1,'rgba(0,0,0,0.1)');
+      ctx.fillStyle=g; ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.drawImage(renderer.domElement,0,0);
+      return canvas.toDataURL('image/png');
+    }
+
+    /* ─ STARS ─ */
+    const stars = (() => {
+      const g=new THREE.BufferGeometry(), COUNT=isMobile?200:800, spread=50000;
+      const p=new Float32Array(COUNT*3);
+      for(let i=0;i<COUNT;i++){p[i*3]=(Math.random()*2-1)*spread;p[i*3+1]=(Math.random()*2-1)*spread;p[i*3+2]=(Math.random()*2-1)*spread;}
+      g.setAttribute('position',new THREE.BufferAttribute(p,3));
+      const pts=new THREE.Points(g,new THREE.PointsMaterial({size:10,sizeAttenuation:true,color:0xffffff,transparent:true,opacity:.6}));
+      scene.add(pts);
+      return { update(){pts.rotation.z+=0.0001;} };
+    })();
+
+    /* ─ GRID ─ */
+    const UNIT_PER_M=1000;
+    let gridSize=20, boxSize=UNIT_PER_M;
+    let grid=new THREE.GridHelper(gridSize*boxSize,gridSize,0x444444,0x333333);
+    grid.rotation.x=Math.PI/2; scene.add(grid);
+    const ground=new THREE.Mesh(
+      new THREE.PlaneBufferGeometry(gridSize*boxSize*10,gridSize*boxSize*10),
+      new THREE.MeshBasicMaterial({visible:false})
+    );
+    scene.add(ground);
+    function refreshGridLabels(){document.getElementById('gridSizeLabel').textContent=gridSize;}
+    function rebuildGrid(){
+      scene.remove(grid);
+      grid=new THREE.GridHelper(gridSize*boxSize,gridSize,0x444444,0x333333);
+      grid.rotation.x=Math.PI/2; scene.add(grid);
+      ground.geometry=new THREE.PlaneBufferGeometry(gridSize*boxSize*10,gridSize*boxSize*10);
+      refreshGridLabels();
+    }
+    document.getElementById('btn_grid_plus').addEventListener('click',()=>{gridSize+=10;rebuildGrid();});
+    document.getElementById('btn_grid_minus').addEventListener('click',()=>{if(gridSize>10){gridSize-=10;rebuildGrid();}});
+
+    /* ─ LIGHTS ─ */
+    scene.add(new THREE.HemisphereLight(0xffffff,0x888888,1.5));
+    const dir=new THREE.DirectionalLight(0xffffff,1.2); dir.position.set(5000,5000,5000); scene.add(dir);
+
+    /* ─ LOADER ─ */
+    const dracoLoader=new DRACOLoader();
+    dracoLoader.setDecoderPath('https://unpkg.com/three@0.119.1/examples/js/libs/draco/gltf/');
+    const loader=new GLTFLoader(); loader.setDRACOLoader(dracoLoader);
+
+    /* ─ CITY & TREE ─ */
+    let treeModel = null;
+    let isTreeVisible = true;
+
+    loader.load('https://edhwbkcmxgisqnznryhp.supabase.co/storage/v1/object/public/Model_Pravet/boston.glb',(gltf)=>{
+      const city=gltf.scene; city.rotation.x=Math.PI/2;
+      city.traverse(n=>{
+        if(!n.isMesh || !n.material) return;
+        n.castShadow = true;
+        n.receiveShadow = true;
+        n.material = Array.isArray(n.material) ? n.material.map(m=>m.clone()) : n.material.clone();
+        const mats = Array.isArray(n.material) ? n.material : [n.material];
+        mats.forEach(mat => {
+          mat.precision = 'mediump'; 
+          mat.shadowSide = THREE.DoubleSide;
+          if(!mat.color) return;
+          const r=mat.color.r, g=mat.color.g, b=mat.color.b;
+          const nm = (n.name||'').toLowerCase();
+          const isNamedTree = /tree|leaf|foliage|plant|grass|shrub|bush|canopy|crown|palm|hedge|flower/.test(nm);
+          const isNamedWater = /water|pond|lake|river|pool/.test(nm);
+          const isStrongGreen = g > r * 1.3 && g > b * 1.3 && g > 0.2;
+          const isStrongBlue = b > r * 1.2 && b > g * 1.1 && b > 0.2;
+
+          if (isNamedTree || isStrongGreen) {
+            mat.color.setHex(0x2d5a28); mat.roughness = 0.85; mat.metalness = 0.0;
+          } else if (isNamedWater || isStrongBlue) {
+            mat.color.setHex(0x3d7a9e); mat.roughness = 0.1; mat.metalness = 0.1;
+          } else {
+            mat.color.setRGB(0.5, 0.5, 0.48); mat.roughness = 0.75; mat.metalness = 0.02;
+          }
+        });
+      });
+
+      const box=new THREE.Box3().setFromObject(city);
+      const size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());
+      const sf=(gridSize*boxSize/Math.max(size.x,size.y))*5*2;
+      
+      city.scale.setScalar(sf * 5);
+      city.position.set(-center.x*sf*5,-center.y*sf*5,-1500);
+      scene.add(city);
+
+      loader.load('https://edhwbkcmxgisqnznryhp.supabase.co/storage/v1/object/public/Model_Pravet/tree.glb', (treeGltf) => {
+        treeModel = treeGltf.scene;
+        treeModel.rotation.x = Math.PI / 2;
+        treeModel.scale.setScalar(sf * 5);
+        treeModel.position.set(-center.x*sf*5, -center.y*sf*5, -1500);
+        treeModel.traverse(n => {
+          if(n.isMesh) {
+            n.castShadow = true;
+            n.receiveShadow = true;
+            if(n.material) {
+              n.material.precision = 'mediump';
+              n.material.shadowSide = THREE.DoubleSide;
+            }
+          }
+        });
+        scene.add(treeModel);
+      });
+
+      const scaledSizeX = size.x * sf * 5;
+      const scaledSizeY = size.y * sf * 5;
+      const modelSpan = Math.max(scaledSizeX, scaledSizeY);
+      const newGridSize = Math.ceil(modelSpan / boxSize / 2) * 2; 
+      gridSize = Math.max(newGridSize, 10);
+      rebuildGrid();
+    },undefined,()=>{
+      loader.load(CITY_BASE_URL+'earth.glb',g=>{g.scene.rotation.x=Math.PI/2;g.scene.scale.setScalar(5000);scene.add(g.scene);});
+    });
+
+    document.getElementById('btn_toggle_tree').addEventListener('click', () => {
+      if (treeModel) {
+        isTreeVisible = !isTreeVisible;
+        treeModel.visible = isTreeVisible;
+        document.getElementById('btn_toggle_tree').textContent = isTreeVisible ? '🌳 Hide Original Trees' : '🌳 Show Original Trees';
+      }
+    });
+
+    /* ─ DATA ─ */
+    const GROUP_EMOJI = {
+      '01':'🪑','02':'🍽️','03':'🏋️','04':'🎠','05':'📷','06':'💧','07':'💡','08':'⛱️',
+      '09':'🔒','10':'❤️','11':'🗑️','12':'🔊','13':'🚏','14':'🌳','15':'🚨','16':'🚲',
+      '17':'🚻','18':'🧪'
+    };
+
+    const ITEM_ICON = {
+      '01 Chair::Low bench park chair': '/icon/Park Bench1.png',
+      '01 Chair::Small grandstand stadium chair': '/icon/Park Bench2.png',
+      '01 Chair::Chair with backrest and armrests': '/icon/Park Bench3.png',
+      '01 Chair::Circular tree bench': '/icon/Park Bench4.png',
+      '01 Chair::Recliner / Sun lounger': '/icon/Park Bench5.png',
+      '02 Table::Picnic table with benches': '/icon/Table1.png',
+      '02 Table::Standing bar / High table along path': '/icon/Table2.png',
+      '02 Table::Chess / Board game table': '/icon/Table3.png',
+      '02 Table::Outdoor workstation table': '/icon/Table4.png',
+      '03 Exercise Equipment::Stretching / Cool-down station': '/icon/Exercise1.png',
+      '03 Exercise Equipment::Bodyweight resistance training': '/icon/Exercise2.png',
+      '03 Exercise Equipment::Outdoor cardio equipment': '/icon/Exercise3.png',
+      '03 Exercise Equipment::Senior balance training station': '/icon/Exercise4.png',
+      '03 Exercise Equipment::Outdoor dumbbell weight zone': '/icon/Exercise5.png',
+      '04 Playground Equipment::Climbing frame / Wall': '/icon/Playground1.png',
+      '04 Playground Equipment::Slide-Tower-Bridge set': '/icon/Playground2.png',
+      '04 Playground Equipment::Safety swing': '/icon/Playground3.png',
+      '04 Playground Equipment::Mist spray water play': '/icon/Playground4.png',
+      '04 Playground Equipment::Creative sand / nature play zone': '/icon/Playground5.png',
+      '05 CCTV Cameras::Park entrance-exit camera': '/icon/CCTV1.png',
+      '05 CCTV Cameras::Sports zone and grandstand camera': '/icon/CCTV2.png',
+      '05 CCTV Cameras::Running path and blind spot camera': '/icon/CCTV3.png',
+      '05 CCTV Cameras::Camera near pond / high-risk area': '/icon/CCTV4.png',
+      '06 Public Water Dispensers::Drinking water with bottle filler': '/icon/Water Fountain1.png',
+      '06 Public Water Dispensers::Wheelchair accessible dispenser': '/icon/Water Fountain2.png',
+      '06 Public Water Dispensers::Water/hand wash near playground': '/icon/Water Fountain3.png',
+      '06 Public Water Dispensers::Pet water point': '/icon/Water Fountain4.png',
+      '07 Lighting::General pathway streetlight': '/icon/Street Light1.png',
+      '07 Lighting::Sports field floodlight': '/icon/Street Light2.png',
+      '07 Lighting::Pond/boardwalk ambient lighting': '/icon/Street Light3.png',
+      '07 Lighting::Smart solar lighting': '/icon/Street Light4.png',
+      '08 Shelters / Roofs::Open-air sun/rain pavilion': '/icon/Shelter1.png',
+      '08 Shelters / Roofs::Pergola with climbing plants': '/icon/Shelter2.png',
+      '08 Shelters / Roofs::Sheltered spectator seating': '/icon/Shelter3.png',
+      '08 Shelters / Roofs::Waiting kiosk / Meeting point': '/icon/Shelter4.png',
+      '09 Public Lockers::Lockers for runners/athletes': '/icon/Locker1.png',
+      '09 Public Lockers::Storage lockers for urban events': '/icon/Locker2.png',
+      '09 Public Lockers::Lockers for loaner equipment': '/icon/Locker3.png',
+      '10 AED Defibrillators::AED box park center': '/icon/AED1.png',
+      '10 AED Defibrillators::AED box sports zone': '/icon/AED2.png',
+      '10 AED Defibrillators::AED box near long-distance path': '/icon/AED3.png',
+      '11 Waste Disposal Points::Waste separation bins': '/icon/Bin1.png',
+      '11 Waste Disposal Points::Small bins along running path': '/icon/Bin2.png',
+      '11 Waste Disposal Points::Pet waste bin': '/icon/Bin3.png',
+      '12 PA Speakers::Park-wide emergency announcement system': '/icon/Speaker1.png',
+      '12 PA Speakers::Sports and activity zone speaker': '/icon/Speaker2.png',
+      '12 PA Speakers::Relaxation zone ambient music speaker': '/icon/Speaker3.png',
+      '12 PA Speakers::Bilingual announcement / Park info point': '/icon/Speaker4.png',
+      '13 Signage / Wayfinding::Integrated park map sign': '/icon/Sign1.png',
+      '13 Signage / Wayfinding::Post-mounted directional sign': '/icon/Sign2.png',
+      '13 Signage / Wayfinding::Running track distance marker': '/icon/Sign3.png',
+      '13 Signage / Wayfinding::Area/Field rules sign': '/icon/Sign4.png',
+      '13 Signage / Wayfinding::Pond-side hazard warning sign': '/icon/Sign5.png',
+      '14 Shade Trees / Landscape::Shade tree line along path': '/icon/Tree1.png',
+      '14 Shade Trees / Landscape::Low shrub bed': '/icon/Tree2.png',
+      '14 Shade Trees / Landscape::Functional lawn area with shade': '/icon/Tree3.png',
+      '14 Shade Trees / Landscape::Lightweight sunshade structure': '/icon/Tree4.png',
+      '15 Safety & Assistance::SOS emergency post with light/signal': '/icon/Safety1.png',
+      '15 Safety & Assistance::Basic first aid point': '/icon/Safety2.png',
+      '15 Safety & Assistance::Zone code / coordinate sign for reporting': '/icon/Safety3.png',
+      '15 Safety & Assistance::Guardrail and anti-slip edge at pond': '/icon/Safety4.png',
+      '15 Safety & Assistance::Staff point / Communication kiosk': '/icon/Safety5.png',
+      '16 Bicycle & Micromobility::U-Rack bicycle parking': '/icon/Bicycle1.png',
+      '16 Bicycle & Micromobility::Organized scooter/micromobility parking': '/icon/Bicycle2.png',
+      '16 Bicycle & Micromobility::Bicycle repair point with air pump': '/icon/Bicycle3.png',
+      '16 Bicycle & Micromobility::Speed calming measures': '/icon/Bicycle4.png',
+      '17 Public Restrooms::Small gender-separated single-stall restroom': '/icon/Toilet1.png',
+      '17 Public Restrooms::Medium gender-separated restroom (2 stalls each)': '/icon/Toilet2.png',
+      '17 Public Restrooms::Large restroom with showers': '/icon/Toilet3.png',
+      '17 Public Restrooms::Exterior hand / foot wash point': '/icon/Toilet4.png',
+      '18 People::Person 01': '/icon/Experiment1.png',
+      '18 People::Person 02': '/icon/Experiment2.png',
+      '18 People::Person 03': '/icon/Experiment3.png',
+      '18 People::Person 04': '/icon/Experiment4.png',
+      '18 People::Person 05': '/icon/Experiment5.png',
+    };
+
+    const GROUPS = {
+      '01 Chair':['01 Chair::Low bench park chair','01 Chair::Small grandstand stadium chair','01 Chair::Chair with backrest and armrests','01 Chair::Circular tree bench','01 Chair::Recliner / Sun lounger'],
+      '02 Table':['02 Table::Picnic table with benches','02 Table::Standing bar / High table along path','02 Table::Chess / Board game table','02 Table::Outdoor workstation table'],
+      '03 Exercise Equipment':['03 Exercise Equipment::Stretching / Cool-down station','03 Exercise Equipment::Bodyweight resistance training','03 Exercise Equipment::Outdoor cardio equipment','03 Exercise Equipment::Senior balance training station','03 Exercise Equipment::Outdoor dumbbell weight zone'],
+      '04 Playground Equipment':['04 Playground Equipment::Climbing frame / Wall','04 Playground Equipment::Slide-Tower-Bridge set','04 Playground Equipment::Safety swing','04 Playground Equipment::Mist spray water play','04 Playground Equipment::Creative sand / nature play zone'],
+      '05 CCTV Cameras':['05 CCTV Cameras::Park entrance-exit camera','05 CCTV Cameras::Sports zone and grandstand camera','05 CCTV Cameras::Running path and blind spot camera','05 CCTV Cameras::Camera near pond / high-risk area'],
+      '06 Public Water Dispensers':['06 Public Water Dispensers::Drinking water with bottle filler','06 Public Water Dispensers::Wheelchair accessible dispenser','06 Public Water Dispensers::Water/hand wash near playground','06 Public Water Dispensers::Pet water point'],
+      '07 Lighting':['07 Lighting::General pathway streetlight','07 Lighting::Sports field floodlight','07 Lighting::Pond/boardwalk ambient lighting','07 Lighting::Smart solar lighting'],
+      '08 Shelters / Roofs':['08 Shelters / Roofs::Open-air sun/rain pavilion','08 Shelters / Roofs::Pergola with climbing plants','08 Shelters / Roofs::Sheltered spectator seating','08 Shelters / Roofs::Waiting kiosk / Meeting point'],
+      '09 Public Lockers':['09 Public Lockers::Lockers for runners/athletes','09 Public Lockers::Storage lockers for urban events','09 Public Lockers::Lockers for loaner equipment'],
+      '10 AED Defibrillators':['10 AED Defibrillators::AED box park center','10 AED Defibrillators::AED box sports zone','10 AED Defibrillators::AED box near long-distance path'],
+      '11 Waste Disposal Points':['11 Waste Disposal Points::Waste separation bins','11 Waste Disposal Points::Small bins along running path','11 Waste Disposal Points::Pet waste bin'],
+      '12 PA Speakers':['12 PA Speakers::Park-wide emergency announcement system','12 PA Speakers::Sports and activity zone speaker','12 PA Speakers::Relaxation zone ambient music speaker','12 PA Speakers::Bilingual announcement / Park info point'],
+      '13 Signage / Wayfinding':['13 Signage / Wayfinding::Integrated park map sign','13 Signage / Wayfinding::Post-mounted directional sign','13 Signage / Wayfinding::Running track distance marker','13 Signage / Wayfinding::Area/Field rules sign','13 Signage / Wayfinding::Pond-side hazard warning sign'],
+      '14 Shade Trees / Landscape':['14 Shade Trees / Landscape::Shade tree line along path','14 Shade Trees / Landscape::Low shrub bed','14 Shade Trees / Landscape::Functional lawn area with shade','14 Shade Trees / Landscape::Lightweight sunshade structure'],
+      '15 Safety & Assistance':['15 Safety & Assistance::SOS emergency post with light/signal','15 Safety & Assistance::Basic first aid point','15 Safety & Assistance::Zone code / coordinate sign for reporting','15 Safety & Assistance::Guardrail and anti-slip edge at pond','15 Safety & Assistance::Staff point / Communication kiosk'],
+      '16 Bicycle & Micromobility':['16 Bicycle & Micromobility::U-Rack bicycle parking','16 Bicycle & Micromobility::Organized scooter/micromobility parking','16 Bicycle & Micromobility::Bicycle repair point with air pump','16 Bicycle & Micromobility::Speed calming measures'],
+      '17 Public Restrooms':['17 Public Restrooms::Small gender-separated single-stall restroom','17 Public Restrooms::Medium gender-separated restroom (2 stalls each)','17 Public Restrooms::Large restroom with showers','17 Public Restrooms::Exterior hand / foot wash point'],
+      '18 People':['18 People::Person 01','18 People::Person 02','18 People::Person 03','18 People::Person 04','18 People::Person 05'],
+    };
+
+    const ITEM_SCALE_M = {
+      '01 Chair::Low bench park chair': {long:1.44},
+      '01 Chair::Small grandstand stadium chair': {long:1.60},
+      '01 Chair::Chair with backrest and armrests': {long:0.50},
+      '01 Chair::Circular tree bench': {long:5.76},
+      '01 Chair::Recliner / Sun lounger': {long:1.064},
+      '02 Table::Picnic table with benches': {long:1.80},
+      '02 Table::Standing bar / High table along path': {long:0.42},
+      '02 Table::Chess / Board game table': {long:0.90},
+      '02 Table::Outdoor workstation table': {long:1.40},
+      '03 Exercise Equipment::Stretching / Cool-down station': {long:1.50},
+      '03 Exercise Equipment::Bodyweight resistance training': {long:1.20},
+      '03 Exercise Equipment::Outdoor cardio equipment': {long:0.75},
+      '03 Exercise Equipment::Senior balance training station': {long:0.75},
+      '03 Exercise Equipment::Outdoor dumbbell weight zone': {long:1.50},
+      '04 Playground Equipment::Climbing frame / Wall': {long:1.50},
+      '04 Playground Equipment::Slide-Tower-Bridge set': {long:2.50},
+      '04 Playground Equipment::Safety swing': {long:1.75},
+      '04 Playground Equipment::Mist spray water play': {long:1.50},
+      '04 Playground Equipment::Creative sand / nature play zone': {long:2.50},
+      '05 CCTV Cameras::Park entrance-exit camera': {tall:1.75},
+      '05 CCTV Cameras::Sports zone and grandstand camera': {tall:1.75},
+      '05 CCTV Cameras::Running path and blind spot camera': {tall:1.75},
+      '05 CCTV Cameras::Camera near pond / high-risk area': {tall:1.75},
+      '06 Public Water Dispensers::Drinking water with bottle filler': {tall:1.20},
+      '06 Public Water Dispensers::Wheelchair accessible dispenser': {tall:0.90},
+      '06 Public Water Dispensers::Water/hand wash near playground': {tall:1.00},
+      '06 Public Water Dispensers::Pet water point': {tall:0.40},
+      '07 Lighting::General pathway streetlight': {tall:4.00},
+      '07 Lighting::Sports field floodlight': {tall:6.00},
+      '07 Lighting::Pond/boardwalk ambient lighting': {tall:1.25},
+      '07 Lighting::Smart solar lighting': {tall:5.00},
+      '08 Shelters / Roofs::Open-air sun/rain pavilion': {long:5.00},
+      '08 Shelters / Roofs::Pergola with climbing plants': {long:5.00},
+      '08 Shelters / Roofs::Sheltered spectator seating': {long:6.00},
+      '08 Shelters / Roofs::Waiting kiosk / Meeting point': {long:4.00},
+      '09 Public Lockers::Lockers for runners/athletes': {long:1.50},
+      '09 Public Lockers::Storage lockers for urban events': {long:2.50},
+      '09 Public Lockers::Lockers for loaner equipment': {long:2.50},
+      '10 AED Defibrillators::AED box park center': {tall:1.40},
+      '10 AED Defibrillators::AED box sports zone': {tall:1.40},
+      '10 AED Defibrillators::AED box near long-distance path': {tall:1.40},
+      '11 Waste Disposal Points::Waste separation bins': {long:1.50},
+      '11 Waste Disposal Points::Small bins along running path': {tall:0.80},
+      '11 Waste Disposal Points::Pet waste bin': {tall:1.00},
+      '12 PA Speakers::Park-wide emergency announcement system': {tall:4.00},
+      '12 PA Speakers::Sports and activity zone speaker': {tall:2.00},
+      '12 PA Speakers::Relaxation zone ambient music speaker': {tall:1.50},
+      '12 PA Speakers::Bilingual announcement / Park info point': {tall:1.50},
+      '13 Signage / Wayfinding::Integrated park map sign': {tall:2.20},
+      '13 Signage / Wayfinding::Post-mounted directional sign': {tall:2.00},
+      '13 Signage / Wayfinding::Running track distance marker': {tall:0.80},
+      '13 Signage / Wayfinding::Area/Field rules sign': {tall:1.80},
+      '13 Signage / Wayfinding::Pond-side hazard warning sign': {tall:1.50},
+      '14 Shade Trees / Landscape::Shade tree line along path': {long:6.0},
+      '14 Shade Trees / Landscape::Low shrub bed': {long:2.00},
+      '14 Shade Trees / Landscape::Functional lawn area with shade': {long:7.00},
+      '14 Shade Trees / Landscape::Lightweight sunshade structure': {long:10.00},
+      '15 Safety & Assistance::SOS emergency post with light/signal': {tall:2.00},
+      '15 Safety & Assistance::Basic first aid point': {long:1.00},
+      '15 Safety & Assistance::Zone code / coordinate sign for reporting': {tall:1.50},
+      '15 Safety & Assistance::Guardrail and anti-slip edge at pond': {long:3.00},
+      '15 Safety & Assistance::Staff point / Communication kiosk': {long:1.0},
+      '16 Bicycle & Micromobility::U-Rack bicycle parking': {long:1.5},
+      '16 Bicycle & Micromobility::Organized scooter/micromobility parking': {long:2.50},
+      '16 Bicycle & Micromobility::Bicycle repair point with air pump': {tall:0.525},
+      '16 Bicycle & Micromobility::Speed calming measures': {long:3.5},
+      '17 Public Restrooms::Small gender-separated single-stall restroom': {long:7.0},
+      '17 Public Restrooms::Medium gender-separated restroom (2 stalls each)': {long:7.00},
+      '17 Public Restrooms::Large restroom with showers': {long:13.00},
+      '17 Public Restrooms::Exterior hand / foot wash point': {long:3.0},
+      '18 People::Person 01': {tall:1.5},
+      '18 People::Person 02': {tall:4},
+      '18 People::Person 03': {tall:1.5},
+      '18 People::Person 04': {tall:4},
+      '18 People::Person 05': {tall:1.5},
+    };
+
+    const MODEL_SCALE_MULTIPLIER = {
+      '01 Chair::Low bench park chair': 1.0,
+      '01 Chair::Small grandstand stadium chair': 1.0,
+      '01 Chair::Chair with backrest and armrests': 1.0,
+      '01 Chair::Circular tree bench': 1.0,
+      '01 Chair::Recliner / Sun lounger': 1.0,
+      '02 Table::Picnic table with benches': 1.0,
+      '02 Table::Standing bar / High table along path': 1.0,
+      '02 Table::Chess / Board game table': 1.0,
+      '02 Table::Outdoor workstation table': 1.0,
+      '03 Exercise Equipment::Stretching / Cool-down station': 1.5,
+      '03 Exercise Equipment::Bodyweight resistance training': 1.2,
+      '03 Exercise Equipment::Outdoor cardio equipment': 1.0,
+      '03 Exercise Equipment::Senior balance training station': 3.0,
+      '03 Exercise Equipment::Outdoor dumbbell weight zone': 3.0,
+      '04 Playground Equipment::Climbing frame / Wall': 1.0,
+      '04 Playground Equipment::Slide-Tower-Bridge set': 1.0,
+      '04 Playground Equipment::Safety swing': 1.0,
+      '04 Playground Equipment::Mist spray water play': 1.0,
+      '04 Playground Equipment::Creative sand / nature play zone': 1.0,
+      '05 CCTV Cameras::Park entrance-exit camera': 1.0,
+      '05 CCTV Cameras::Sports zone and grandstand camera': 1.0,
+      '05 CCTV Cameras::Running path and blind spot camera': 1.0,
+      '05 CCTV Cameras::Camera near pond / high-risk area': 1.0,
+      '06 Public Water Dispensers::Drinking water with bottle filler': 1.0,
+      '06 Public Water Dispensers::Wheelchair accessible dispenser': 1.0,
+      '06 Public Water Dispensers::Water/hand wash near playground': 1.0,
+      '06 Public Water Dispensers::Pet water point': 1.0,
+      '07 Lighting::General pathway streetlight': 1.0,
+      '07 Lighting::Sports field floodlight': 1.0,
+      '07 Lighting::Pond/boardwalk ambient lighting': 1.0,
+      '07 Lighting::Smart solar lighting': 1.0,
+      '08 Shelters / Roofs::Open-air sun/rain pavilion': 1.0,
+      '08 Shelters / Roofs::Pergola with climbing plants': 1.0,
+      '08 Shelters / Roofs::Sheltered spectator seating': 1.0,
+      '08 Shelters / Roofs::Waiting kiosk / Meeting point': 1.0,
+      '09 Public Lockers::Lockers for runners/athletes': 1.0,
+      '09 Public Lockers::Storage lockers for urban events': 1.0,
+      '09 Public Lockers::Lockers for loaner equipment': 1.0,
+      '10 AED Defibrillators::AED box park center': 1.0,
+      '10 AED Defibrillators::AED box sports zone': 1.0,
+      '10 AED Defibrillators::AED box near long-distance path': 1.0,
+      '11 Waste Disposal Points::Waste separation bins': 1.0,
+      '11 Waste Disposal Points::Small bins along running path': 1.0,
+      '11 Waste Disposal Points::Pet waste bin': 1.0,
+      '12 PA Speakers::Park-wide emergency announcement system': 1.0,
+      '12 PA Speakers::Sports and activity zone speaker': 0.5,
+      '12 PA Speakers::Relaxation zone ambient music speaker': 0.5,
+      '12 PA Speakers::Bilingual announcement / Park info point': 1.0,
+      '13 Signage / Wayfinding::Integrated park map sign': 1.0,
+      '13 Signage / Wayfinding::Post-mounted directional sign': 1.0,
+      '13 Signage / Wayfinding::Running track distance marker': 1.0,
+      '13 Signage / Wayfinding::Area/Field rules sign': 1.0,
+      '13 Signage / Wayfinding::Pond-side hazard warning sign': 0.5,
+      '14 Shade Trees / Landscape::Shade tree line along path': 1.0,
+      '14 Shade Trees / Landscape::Low shrub bed': 1.0,
+      '14 Shade Trees / Landscape::Functional lawn area with shade': 1.0,
+      '14 Shade Trees / Landscape::Lightweight sunshade structure': 1.0,
+      '15 Safety & Assistance::SOS emergency post with light/signal': 1.0,
+      '15 Safety & Assistance::Basic first aid point': 1.0,
+      '15 Safety & Assistance::Zone code / coordinate sign for reporting': 1.0,
+      '15 Safety & Assistance::Guardrail and anti-slip edge at pond': 1.0,
+      '15 Safety & Assistance::Staff point / Communication kiosk': 1.0,
+      '16 Bicycle & Micromobility::U-Rack bicycle parking': 1.0,
+      '16 Bicycle & Micromobility::Organized scooter/micromobility parking': 1.0,
+      '16 Bicycle & Micromobility::Bicycle repair point with air pump': 1.0,
+      '16 Bicycle & Micromobility::Speed calming measures': 1.0,
+      '17 Public Restrooms::Small gender-separated single-stall restroom': 1.0,
+      '17 Public Restrooms::Medium gender-separated restroom (2 stalls each)': 1.0,
+      '17 Public Restrooms::Large restroom with showers': 1.0,
+      '17 Public Restrooms::Exterior hand / foot wash point': 1.0,
+      '18 People::Person 01': 1.0,
+      '18 People::Person 02': .35,
+      '18 People::Person 03': 1.0,
+      '18 People::Person 04': .25,
+      '18 People::Person 05': .7,
+    };
+
+    const ITEM_SCALE_MUL = MODEL_SCALE_MULTIPLIER; 
+
+    function getGroupTitleByKey(key){for(const[t,l]of Object.entries(GROUPS))if(l.includes(key))return t;return null;}
+
+    function computeBaseScale(obj,key){
+      const t = ITEM_SCALE_M[key];
+      const mul = MODEL_SCALE_MULTIPLIER[key] || 1.0;
+      const size = new THREE.Box3().setFromObject(obj).getSize(new THREE.Vector3());
+      if(!t){
+        const ln = Math.max(size.x,size.y);
+        return ln>0 ? ((2.0*UNIT_PER_M)/ln)*mul : 1;
+      }
+      if(t.tall){
+        return size.z>0 ? ((t.tall*UNIT_PER_M)/size.z)*mul : 1;
+      }
+      const ln = Math.max(size.x,size.y);
+      return ln>0 ? ((t.long*UNIT_PER_M)/ln)*mul : 1;
+    }
+
+    /* ─ MODEL LOADING ─ */
+    const templates={},counts={},buttons={};
+    const modelNames=[...new Set(Object.values(GROUPS).flat())];
+    modelNames.forEach(n=>counts[n]=0);
+
+    const ITEM_PATH = {
+      '01 Chair::Low bench park chair': '01 Chair/A/1.glb',
+      '01 Chair::Small grandstand stadium chair': '01 Chair/B/1.glb',
+      '01 Chair::Chair with backrest and armrests': '01 Chair/C/1.glb',
+      '01 Chair::Circular tree bench': '01 Chair/D/1.glb',
+      '01 Chair::Recliner / Sun lounger': '01 Chair/E/1.glb',
+      '02 Table::Picnic table with benches': '02 Tables/Table - Picnic table with benches/1.glb',
+      '02 Table::Standing bar / High table along path': '02 Tables/Table - Standing bar table High table along running paths/1.glb',
+      '02 Table::Chess / Board game table': '02 Tables/Table - Chess Board game table/1.glb',
+      '02 Table::Outdoor workstation table': '02 Tables/Table - Outdoor workstation/1.glb',
+      '03 Exercise Equipment::Stretching / Cool-down station': '03 Exercise Equipment/Stretching Cool-down station/1.glb',
+      '03 Exercise Equipment::Bodyweight resistance training': '03 Exercise Equipment/Bodyweight resistance training equipment/1.glb',
+      '03 Exercise Equipment::Outdoor cardio equipment': '03 Exercise Equipment/Outdoor cardio equipment/1.glb',
+      '03 Exercise Equipment::Senior balance training station': '03 Exercise Equipment/Balance training station for seniors/1.glb',
+      '03 Exercise Equipment::Outdoor dumbbell weight zone': '03 Exercise Equipment/Outdoor dumbbell weight zone/1.glb',
+      '04 Playground Equipment::Climbing frame / Wall': '04 Playground Equipment/Climbing frame Climbing wall/1.glb',
+      '04 Playground Equipment::Slide-Tower-Bridge set': '04 Playground Equipment/Slide-Tower-Bridge play structure/1.glb',
+      '04 Playground Equipment::Safety swing': '04 Playground Equipment/Safety swing set/1.glb',
+      '04 Playground Equipment::Mist spray water play': '04 Playground Equipment/Mist Spray water play feature/1.glb',
+      '04 Playground Equipment::Creative sand / nature play zone': '04 Playground Equipment/Creative play zone Sand Nature-based/1.glb',
+      '05 CCTV Cameras::Park entrance-exit camera': '05 CCTV Cameras/Park entrance exit camera/1.glb',
+      '05 CCTV Cameras::Sports zone and grandstand camera': '05 CCTV Cameras/Sports field and grandstand camera/1.glb',
+      '05 CCTV Cameras::Running path and blind spot camera': '05 CCTV Cameras/Camera along running paths and blind spots/1.glb',
+      '05 CCTV Cameras::Camera near pond / high-risk area': '05 CCTV Cameras/Camera near ponds high-risk areas/1.glb',
+      '06 Public Water Dispensers::Drinking water with bottle filler': '06 Public Water Dispensers/Drinking water with bottle-filling station/1.glb',
+      '06 Public Water Dispensers::Wheelchair accessible dispenser': '06 Public Water Dispensers/Wheelchair-accessible water dispenser/1.glb',
+      '06 Public Water Dispensers::Water/hand wash near playground': '06 Public Water Dispensers/Water hand-washing point near playground/1.glb',
+      '06 Public Water Dispensers::Pet water point': '06 Public Water Dispensers/Water point for pets/1.glb',
+      '07 Lighting::General pathway streetlight': '07 Lighting/General pathway lighting/1.glb',
+      '07 Lighting::Sports field floodlight': '07 Lighting/Sports field floodlights/1.glb',
+      '07 Lighting::Pond/boardwalk ambient lighting': '07 Lighting/Ambient lighting pond wooden walkway/1.glb',
+      '07 Lighting::Smart solar lighting': '07 Lighting/Smart solar lighting/1.glb',
+      '08 Shelters / Roofs::Open-air sun/rain pavilion': '08 Rain Shelters Roof Structures/Open-air sun rain pavilion/1.glb',
+      '08 Shelters / Roofs::Pergola with climbing plants': '08 Rain Shelters Roof Structures/Pergola with climbing plants/1.glb',
+      '08 Shelters / Roofs::Sheltered spectator seating': '08 Rain Shelters Roof Structures/Sheltered spectator seating/1.glb',
+      '08 Shelters / Roofs::Waiting kiosk / Meeting point': '08 Rain Shelters Roof Structures/Waiting Meeting kiosk/1.glb',
+      '09 Public Lockers::Lockers for runners/athletes': '09 Public Lockers/Lockers for runners athletes/1.glb',
+      '09 Public Lockers::Storage lockers for urban events': '09 Public Lockers/Storage lockers for urban events/1.glb',
+      '09 Public Lockers::Lockers for loaner equipment': '09 Public Lockers/Lockers for loaner equipment/1.glb',
+      '10 AED Defibrillators::AED box park center': '10 AED Defibrillators/AED station Park Center/1.glb',
+      '10 AED Defibrillators::AED box sports zone': '10 AED Defibrillators/AED station Sports Zone/1.glb',
+      '10 AED Defibrillators::AED box near long-distance path': '10 AED Defibrillators/AED station Near long-distance running track/1.glb',
+      '11 Waste Disposal Points::Waste separation bins': '11 Waste Disposal Points/Recycling bins Waste separation/1.glb',
+      '11 Waste Disposal Points::Small bins along running path': '11 Waste Disposal Points/Pathway waste bins Sub-stations/1.glb',
+      '11 Waste Disposal Points::Pet waste bin': '11 Waste Disposal Points/Pet waste bins/1.glb',
+      '12 PA Speakers::Park-wide emergency announcement system': '12 Public Address Speakers/Park-wide emergency announcement system/1.glb',
+      '12 PA Speakers::Sports and activity zone speaker': '12 Public Address Speakers/Speakers Sports and Activity Zones/1.glb',
+      '12 PA Speakers::Relaxation zone ambient music speaker': '12 Public Address Speakers/Ambient music speakers Relaxation Zones/1.glb',
+      '12 PA Speakers::Bilingual announcement / Park info point': '12 Public Address Speakers/Bilingual Announcement Park Information Points/1.glb',
+      '13 Signage / Wayfinding::Integrated park map sign': '13 Signage and Wayfinding Systems/Integrated Park Map Signage/1.glb',
+      '13 Signage / Wayfinding::Post-mounted directional sign': '13 Signage and Wayfinding Systems/Post-mounted Directional Signage/1.glb',
+      '13 Signage / Wayfinding::Running track distance marker': '13 Signage and Wayfinding Systems/Running Track Distance Markers/1.glb',
+      '13 Signage / Wayfinding::Area/Field rules sign': '13 Signage and Wayfinding Systems/Area Facility Usage Rules Signage/1.glb',
+      '13 Signage / Wayfinding::Pond-side hazard warning sign': '13 Signage and Wayfinding Systems/Pond-side Hazard Warning Signage/1.glb',
+      '14 Shade Trees / Landscape::Shade tree line along path': '14 Shade Trees Functional Landscape/Shade-providing Tree Lines along Running Paths/1.glb',
+      '14 Shade Trees / Landscape::Low shrub bed': '14 Shade Trees Functional Landscape/Low Shrub Beds/1.glb',
+      '14 Shade Trees / Landscape::Functional lawn area with shade': '14 Shade Trees Functional Landscape/Functional Lawn Areas with Shade/1.glb',
+      '14 Shade Trees / Landscape::Lightweight sunshade structure': '14 Shade Trees Functional Landscape/Lightweight Sunshade Structures/1.glb',
+      '15 Safety & Assistance::SOS emergency post with light/signal': '15 Safety and Assistance/SOS Emergency Posts with Lights and Signals/1.glb',
+      '15 Safety & Assistance::Basic first aid point': '15 Safety and Assistance/Basic First Aid Stations/1.glb',
+      '15 Safety & Assistance::Zone code / coordinate sign for reporting': '15 Safety and Assistance/Zone Code Park Coordinate Signage for Reporting Incidents/1.glb',
+      '15 Safety & Assistance::Guardrail and anti-slip edge at pond': '15 Safety and Assistance/Guardrails and Non-slip Edges along Ponds/1.glb',
+      '15 Safety & Assistance::Staff point / Communication kiosk': '15 Safety and Assistance/Staff Stations Service Communication Kiosks/1.glb',
+      '16 Bicycle & Micromobility::U-Rack bicycle parking': '16 Bicycle and Micromobility Management/U-Rack Bicycle Parking/1.glb',
+      '16 Bicycle & Micromobility::Organized scooter/micromobility parking': '16 Bicycle and Micromobility Management/Organized Scooter Micromobility Parking Zones/1.glb',
+      '16 Bicycle & Micromobility::Bicycle repair point with air pump': '16 Bicycle and Micromobility Management/Bicycle Repair Stations with Air Pumps/1.glb',
+      '16 Bicycle & Micromobility::Speed calming measures': '16 Bicycle and Micromobility Management/Speed Calming Measures/1.glb',
+      '17 Public Restrooms::Small gender-separated single-stall restroom': '17 Public Restrooms/Small Gender-separated Single-stall Restrooms/1.glb',
+      '17 Public Restrooms::Medium gender-separated restroom (2 stalls each)': '17 Public Restrooms/Medium-sized Gender-separated Restrooms 2 Stalls per Gender/1.glb',
+      '17 Public Restrooms::Large restroom with showers': '17 Public Restrooms/Large Restroom Facilities with Showers/1.glb',
+      '17 Public Restrooms::Exterior hand / foot wash point': '17 Public Restrooms/Exterior Hand and Foot Washing Stations/1.glb',
+      '18 People::Person 01': '18 People/01/1.glb',
+      '18 People::Person 02': '18 People/02/1.glb',
+      '18 People::Person 03': '18 People/03/1.glb',
+      '18 People::Person 04': '18 People/04/1.glb',
+      '18 People::Person 05': '18 People/05/1.glb',
+    };
+
+    function applyWhiteMaterial(root){
+      root.traverse(n=>{
+        if(!n.isMesh) return;
+        const mats = Array.isArray(n.material) ? n.material : [n.material];
+        mats.forEach(mat=>{
+          if(!mat) return;
+          if(mat.map)           { mat.map.dispose();           mat.map=null; }
+          if(mat.normalMap)     { mat.normalMap.dispose();     mat.normalMap=null; }
+          if(mat.roughnessMap)  { mat.roughnessMap.dispose();  mat.roughnessMap=null; }
+          if(mat.metalnessMap)  { mat.metalnessMap.dispose();  mat.metalnessMap=null; }
+          if(mat.aoMap)         { mat.aoMap.dispose();         mat.aoMap=null; }
+          if(mat.emissiveMap)   { mat.emissiveMap.dispose();   mat.emissiveMap=null; }
+          
+          if(mat.color)     mat.color.setRGB(0.70, 0.70, 0.70);
+          if(mat.emissive)  mat.emissive.setRGB(0,0,0);
+          mat.roughness  = 0.65; 
+          mat.metalness  = 0.0;  
+          mat.opacity    = 1;
+          mat.transparent= false;
+          mat.needsUpdate= true;
+        });
+      });
+    }
+
+    const loadModel=(name,filePath)=>{
+      const encodedPath = filePath.split('/').map(segment => encodeURIComponent(segment)).join('/');
+      const url=MODEL_BASE_URL+encodedPath;
+      loader.load(url,(gltf)=>{
+        const obj=gltf.scene; obj.rotation.x=Math.PI/2;
+        const box=new THREE.Box3().setFromObject(obj);
+        const center=box.getCenter(new THREE.Vector3()),min=box.min.clone();
+        const wrap=new THREE.Group(); wrap.add(obj);
+        obj.position.set(-center.x,-center.y,-min.z);
+        wrap.traverse(n=>{if(n.isMesh){n.castShadow=true;n.receiveShadow=true;if(n.material)n.material=n.material.clone();}});
+        applyWhiteMaterial(wrap);
+        templates[name]=wrap;
+      },undefined,err=>console.warn('Failed:',url,err));
+    };
+
+    const MODEL_QUEUE=[], loadingKeys=new Set(), failedKeys=new Set();
+    const pendingCallbacks={};
+    let activeLoads=0;
+    const MAX_CONCURRENT=isMobile?8:24;
+
+    function processQueue(){
+      while(activeLoads<MAX_CONCURRENT&&MODEL_QUEUE.length>0){
+        const {key,filePath}=MODEL_QUEUE.shift();
+        activeLoads++;
+        const encodedPath = filePath.split('/').map(segment => encodeURIComponent(segment)).join('/');
+        const url=MODEL_BASE_URL+encodedPath;
+        loader.load(url,(gltf)=>{
+          const obj=gltf.scene; obj.rotation.x=Math.PI/2;
+          const box=new THREE.Box3().setFromObject(obj);
+          const center=box.getCenter(new THREE.Vector3()),min=box.min.clone();
+          const wrap=new THREE.Group(); wrap.add(obj);
+          obj.position.set(-center.x,-center.y,-min.z);
+          wrap.traverse(n=>{
+            if(n.isMesh){
+              n.castShadow=!isMobile; n.receiveShadow=!isMobile;
+              if(n.material) n.material=n.material.clone();
+            }
+          });
+          applyWhiteMaterial(wrap);
+          templates[key]=wrap;
+          loadingKeys.delete(key);
+          _setCardState(key,'ready');
+          activeLoads--; processQueue();
+          (pendingCallbacks[key]||[]).forEach(cb=>cb.resolve(wrap));
+          delete pendingCallbacks[key];
+        },undefined,(err)=>{
+          console.warn('Load failed:',url,err);
+          loadingKeys.delete(key); failedKeys.add(key);
+          _setCardState(key,'error');
+          activeLoads--; processQueue();
+          (pendingCallbacks[key]||[]).forEach(cb=>cb.reject(err));
+          delete pendingCallbacks[key];
+        });
+      }
+    }
+
+    function loadModelLazy(key, priority=false){
+      if(templates[key]) return Promise.resolve(templates[key]);
+      if(failedKeys.has(key)){failedKeys.delete(key);}
+      return new Promise((resolve,reject)=>{
+        if(!pendingCallbacks[key]) pendingCallbacks[key]=[];
+        pendingCallbacks[key].push({resolve,reject});
+
+        if(loadingKeys.has(key)) return; 
+
+        const groupName=getGroupTitleByKey(key);
+        const idx=(GROUPS[groupName]||[]).indexOf(key);
+        const filePath=ITEM_PATH[key]||(groupName+'/'+(idx+1)+'.glb');
+        loadingKeys.add(key);
+        _setCardState(key,'loading');
+
+        if(priority){
+          MODEL_QUEUE.unshift({key,filePath});
+        } else {
+          MODEL_QUEUE.push({key,filePath});
+        }
+        processQueue();
+      });
+    }
+
+    function _setCardState(key,state){
+      const card=buttons[key]; if(!card)return;
+      card.classList.remove('loading','load-error');
+      if(state==='loading') card.classList.add('loading');
+      if(state==='error')   card.classList.add('load-error');
+    }
+
+    const allModelKeys = [...new Set(Object.values(GROUPS).flat())];
+    const firstOfGroup = new Set(Object.values(GROUPS).map(items=>items[0]).filter(Boolean));
+
+    firstOfGroup.forEach(key => loadModelLazy(key, false));
+
+    const scheduleBackgroundPreload = () => {
+      const remaining = allModelKeys.filter(k => !firstOfGroup.has(k));
+      let i = 0;
+      const loadNext = () => {
+        if(i >= remaining.length) return;
+        remaining.slice(i, i+4).forEach(k => loadModelLazy(k, false));
+        i += 4;
+        if(i < remaining.length){
+          if(typeof requestIdleCallback !== 'undefined'){
+            requestIdleCallback(loadNext, {timeout:800});
+          } else { setTimeout(loadNext, 300); }
+        }
+      };
+      if(typeof requestIdleCallback !== 'undefined'){
+        requestIdleCallback(loadNext, {timeout:1500});
+      } else { setTimeout(loadNext, 500); }
+    };
+    scheduleBackgroundPreload();
+
+    const menu=document.getElementById('menu');
+    let activeKey=null;
+    function makeSafeId(str){return btoa(unescape(encodeURIComponent(str))).replace(/=/g,'');}
+
+    const makeCard=(key,groupName,itemIdx)=>{
+      const label=key.split('::')[1];
+      const safeId=makeSafeId(key);
+      const numPrefix=groupName.split(' ')[0];
+      const emoji=GROUP_EMOJI[numPrefix]||'📦';
+
+      const card=document.createElement('div');
+      card.className='item-card'; card.dataset.key=key;
+
+      function makeThumbEl(src, fallbackFn) {
+        const img = document.createElement('img');
+        img.className = 'thumb'; img.loading = 'lazy'; img.alt = label;
+        img.src = src;
+        img.onerror = fallbackFn;
+        return img;
+      }
+      function makeEmojiEl(e) {
+        const ph = document.createElement('div');
+        ph.className = 'thumb-placeholder'; ph.textContent = e;
+        return ph;
+      }
+
+      const rawIcon = ITEM_ICON[key];
+      const iconSrc = rawIcon
+        ? rawIcon.startsWith('/icon/')
+          ? ICON_BASE_URL + encodeURI(rawIcon.replace('/icon/', ''))
+          : rawIcon
+        : null;
+      let thumbEl;
+      if (iconSrc) {
+        thumbEl = makeThumbEl(iconSrc, () => {
+          card.replaceChild(makeEmojiEl(emoji), thumbEl);
+        });
+      } else {
+        thumbEl = makeEmojiEl(emoji);
+      }
+
+      card.appendChild(thumbEl);
+
+      const lbl=document.createElement('div'); lbl.className='card-label'; lbl.textContent=label;
+      card.appendChild(lbl);
+
+      const cnt=document.createElement('div'); cnt.className='card-count'; cnt.id='count_'+safeId; cnt.textContent='0';
+      card.appendChild(cnt);
+
+      const spn=document.createElement('div'); spn.className='card-spinner'; card.appendChild(spn);
+      const err=document.createElement('div'); err.className='card-err'; err.textContent='⚠ Load failed (tap to retry)'; card.appendChild(err);
+
+      card.addEventListener('pointerenter', () => {
+        if(!templates[key] && !loadingKeys.has(key) && !failedKeys.has(key)){
+          loadModelLazy(key, true);
+        }
+      }, { passive: true });
+
+      card.addEventListener('click',()=>{
+        if(card.classList.contains('loading')) return;
+        if(failedKeys.has(key)){
+          loadModelLazy(key, true);
+          return;
+        }
+        if(!templates[key]){
+          activeKey=key;
+          document.getElementById('selNameDisp').textContent=label+' ⏳';
+          Object.values(buttons).forEach(b=>b.classList.remove('active'));
+          card.classList.add('active'); setSelected(null);
+          loadModelLazy(key, true).then(()=>{
+            if(activeKey===key) document.getElementById('selNameDisp').textContent=label;
+          });
+          return;
+        }
+        activeKey=key;
+        document.getElementById('selNameDisp').textContent=label;
+        Object.values(buttons).forEach(b=>b.classList.remove('active'));
+        card.classList.add('active'); setSelected(null);
+      });
+      buttons[key]=card; return card;
+    };
+
+    Object.entries(GROUPS).forEach(([title,items])=>{
+      const wrap=document.createElement('div'); wrap.className='group';
+      const titleEl=document.createElement('div'); titleEl.className='group-title'; titleEl.textContent=title;
+      wrap.appendChild(titleEl);
+      const grid=document.createElement('div'); grid.className='item-grid';
+      items.forEach((k,i)=>grid.appendChild(makeCard(k,title,i)));
+      wrap.appendChild(grid); menu.appendChild(wrap);
+    });
+
+    /* ─ PLACED OBJECTS ─ */
+    const placedStack=[]; let totalPlaced=0;
+    const updateCount=(key)=>{
+      const safeId=makeSafeId(key);
+      const el=document.getElementById('count_'+safeId);
+      if(el){el.textContent=counts[key];el.classList.toggle('show',counts[key]>0);}
+      document.getElementById('totalPlaced').textContent=totalPlaced;
+    };
+
+    document.getElementById('btn_undo').addEventListener('click',()=>{
+      if(!placedStack.length)return;
+      const obj=placedStack.pop(); const type=obj.userData.type;
+      scene.remove(obj); counts[type]--; totalPlaced--; updateCount(type);
+      if(selected===obj)setSelected(null);
+    });
+
+    document.getElementById('btn_snap').addEventListener('click',()=>{
+      const a=document.createElement('a'); a.download='capture.png'; a.href=capturePNG(); a.click();
+    });
+
+    /* ─ SELECTION ─ */
+    let selected=null,helper=null,ROT_AXIS='z';
+    const rotSlider=document.getElementById('rotSlider');
+    const colorInput=document.getElementById('objColor');
+
+    function setSelected(obj){
+      if(helper){scene.remove(helper);helper=null;}
+      selected=obj||null;
+      if(selected){
+        document.getElementById('propPanelWrapper').style.display='block';
+        helper=new THREE.BoxHelper(selected,0x62d0ff); scene.add(helper);
+        rotSlider.value=Math.round(THREE.MathUtils.radToDeg(selected.rotation[ROT_AXIS]));
+        document.getElementById('selNameDisp').textContent=selected.userData.type.split('::')[1]||selected.userData.type;
+        document.getElementById('objScale').value=(selected.userData.userScaleMul||1).toFixed(2);
+        let fc='#ffffff';
+        selected.traverse(c=>{if(c.isMesh&&c.material?.color)fc='#'+c.material.color.getHexString();});
+        colorInput.value=fc;
+      } else { document.getElementById('propPanelWrapper').style.display='none'; }
+    }
+
+    colorInput.addEventListener('input',e=>{
+      if(!selected)return;
+      selected.traverse(c=>{if(c.isMesh&&c.material?.color)c.material.color.set(e.target.value);});
+    });
+
+    document.getElementById('btn_delete_sel').addEventListener('click',()=>{
+      if(!selected)return;
+      scene.remove(selected); if(helper)scene.remove(helper);
+      const type=selected.userData.type; counts[type]--; totalPlaced--;
+      updateCount(type); placedStack.splice(placedStack.indexOf(selected),1); setSelected(null);
+    });
+
+    document.getElementById('objScale').addEventListener('input',e=>{
+      if(!selected)return;
+      const mul=parseFloat(e.target.value);
+      if(mul>0){selected.userData.userScaleMul=mul;selected.scale.setScalar((selected.userData.baseScale||1)*mul);if(helper)helper.update();}
+    });
+
+    /* ─ ROTATION ─ */
+    const rotAxisSel=document.getElementById('rotAxis');
+    const axisLabel=document.getElementById('axisLabel');
+    const rotDegEl=document.getElementById('rotDeg');
+
+    rotAxisSel.addEventListener('change',e=>{
+      ROT_AXIS=e.target.value; axisLabel.textContent=ROT_AXIS.toUpperCase();
+      if(selected){const d=Math.round(THREE.MathUtils.radToDeg(selected.rotation[ROT_AXIS]));rotSlider.value=d;rotDegEl.textContent=d+'°';}
+    });
+    rotSlider.addEventListener('input',e=>{
+      const d=parseFloat(e.target.value); rotDegEl.textContent=Math.round(d)+'°';
+      if(selected){selected.rotation[ROT_AXIS]=THREE.MathUtils.degToRad(d);if(helper)helper.update();}
+    });
+
+    /* ─ DRAG (mouse) ─ */
+    let isDragging=false,dragItem=null;
+    const raycaster=new THREE.Raycaster();
+
+    renderer.domElement.addEventListener('mousedown',e=>{
+      const m=getMouseNDC(e); raycaster.setFromCamera(m,camera);
+      let pick=null;
+      for(const h of raycaster.intersectObjects(scene.children,true)){
+        let n=h.object;
+        while(n&&n!==scene){if(n.userData.type){pick=n;break;}n=n.parent;}
+        if(pick)break;
+      }
+      if(pick){isDragging=true;dragItem=pick;controls.enabled=false;setSelected(pick);}
+    });
+    renderer.domElement.addEventListener('mousemove',e=>{
+      if(!isDragging||!dragItem)return;
+      raycaster.setFromCamera(getMouseNDC(e),camera);
+      const hit=raycaster.intersectObject(ground)[0];
+      if(hit){dragItem.position.set(Math.round(hit.point.x/50)*50,Math.round(hit.point.y/50)*50,0);if(helper)helper.update();}
+    });
+    renderer.domElement.addEventListener('mouseup',()=>{isDragging=false;dragItem=null;controls.enabled=true;});
+
+    /* ─ DRAG (touch / iOS) ─ */
+    function getTouchNDC(touch){
+      const r=renderer.domElement.getBoundingClientRect();
+      return new THREE.Vector2(((touch.clientX-r.left)/r.width)*2-1,-((touch.clientY-r.top)/r.height)*2+1);
+    }
+    let touchDragItem=null, touchDragging=false;
+    renderer.domElement.addEventListener('touchstart',e=>{
+      if(e.touches.length!==1)return;
+      const m=getTouchNDC(e.touches[0]); raycaster.setFromCamera(m,camera);
+      let pick=null;
+      for(const h of raycaster.intersectObjects(scene.children,true)){
+        let n=h.object;
+        while(n&&n!==scene){if(n.userData.type){pick=n;break;}n=n.parent;}
+        if(pick)break;
+      }
+      if(pick){touchDragging=true;touchDragItem=pick;controls.enabled=false;setSelected(pick);}
+    },{passive:true});
+    renderer.domElement.addEventListener('touchmove',e=>{
+      if(!touchDragging||!touchDragItem||e.touches.length!==1)return;
+      e.preventDefault();
+      raycaster.setFromCamera(getTouchNDC(e.touches[0]),camera);
+      const hit=raycaster.intersectObject(ground)[0];
+      if(hit){touchDragItem.position.set(Math.round(hit.point.x/50)*50,Math.round(hit.point.y/50)*50,0);if(helper)helper.update();}
+    },{passive:false});
+    renderer.domElement.addEventListener('touchend',()=>{touchDragging=false;touchDragItem=null;controls.enabled=true;},{passive:true});
+
+    /* ─ PLACE (double-click mouse) ─ */
+    function doPlace(ndcVec){
+      if(!activeKey)return;
+      if(!templates[activeKey]){
+        loadModelLazy(activeKey, true).then(()=>{});
+        return;
+      }
+      raycaster.setFromCamera(ndcVec,camera);
+      const hit=raycaster.intersectObject(ground)[0]; if(!hit)return;
+      const md=templates[activeKey].clone(true);
+      const base=computeBaseScale(md,activeKey);
+      md.userData.baseScale=base; md.userData.userScaleMul=1; md.scale.setScalar(base);
+      md.position.set(Math.round(hit.point.x/100)*100,Math.round(hit.point.y/100)*100,0);
+      md.userData.type=activeKey;
+      scene.add(md); placedStack.push(md); counts[activeKey]++; totalPlaced++;
+      updateCount(activeKey); setSelected(md);
+    }
+
+    renderer.domElement.addEventListener('dblclick',e=>{ doPlace(getMouseNDC(e)); });
+
+    /* ─ DOUBLE-TAP (iOS place) ─ */
+    let lastTap=0;
+    renderer.domElement.addEventListener('touchend',e=>{
+      if(touchDragging) return;
+      const now=Date.now();
+      if(now-lastTap<320&&e.changedTouches.length===1){
+        doPlace(getTouchNDC(e.changedTouches[0]));
+      }
+      lastTap=now;
+    },{passive:true});
+
+    /* ─ SUPABASE ─ */
+    async function uploadToSupabase(blob){
+      const now=new Date();
+      const ts=[now.getFullYear(),String(now.getMonth()+1).padStart(2,'0'),String(now.getDate()).padStart(2,'0')].join('-')+'_'+
+               [String(now.getHours()).padStart(2,'0'),String(now.getMinutes()).padStart(2,'0'),String(now.getSeconds()).padStart(2,'0')].join('-');
+      const resp=await fetch(`${SUPABASE_URL}/storage/v1/object/${SUPABASE_BUCKET}/submission_${ts}.png`,{
+        method:'POST',headers:{'Authorization':`Bearer ${SUPABASE_KEY}`,'Content-Type':'image/png'},body:blob
+      });
+      if(!resp.ok)throw new Error('Supabase upload failed: '+resp.statusText);
+      return `${SUPABASE_URL}/storage/v1/object/public/${SUPABASE_BUCKET}/submission_${ts}.png`;
+    }
+
+    async function logToGoogleSheets(publicUrl, info){
+      const timestamp = new Date().toISOString();
+
+      fetch(COUNTS_SHEET_URL, {
+        method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({
+          submittedAt:  timestamp,
+          total:        totalPlaced,
+          summary:      publicUrl,
+          details:      counts, 
+          pageLink:     location.href,
+        })
+      });
+
+      if(info){
+        fetch(FEEDBACK_SHEET_URL, {
+          method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'},
+          body: JSON.stringify({
+            submittedAt:    timestamp,
+            additionalInfo: info,
+            total:          totalPlaced,
+            summary:        publicUrl,
+            pageLink:       location.href,
+          })
+        });
+      }
+    }
+
+    document.getElementById('btn_submit').addEventListener('click',async()=>{
+      const btn=document.getElementById('btn_submit'),orig=btn.textContent;
+      try{
+        if(totalPlaced===0){alert('Please place an object before submitting');return;}
+        const info=document.getElementById('additionalInfo').value.trim();
+        btn.textContent='⏳ Processing...'; btn.disabled=true;
+        const url=await uploadToSupabase(dataURLtoBlob(capturePNG()));
+        btn.textContent='⏳ Saving data...';
+        await logToGoogleSheets(url,info);
+        btn.textContent='✔ Complete!';
+        setTimeout(()=>{location.href='gallery.html';},1000);
+      }catch(err){
+        console.error(err); alert('Error: '+err.message);
+        btn.textContent=orig; btn.disabled=false;
+      }
+    });
+
+    window.addEventListener('resize',()=>{
+      renderer.setSize(innerWidth,innerHeight);
+      renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile?1.5:2));
+      camera.aspect=innerWidth/innerHeight;
+      camera.updateProjectionMatrix();
+    });
+
+    let rotDir=0;
+    document.getElementById('btn_rot_holdL').onmousedown=()=>rotDir=-1;
+    document.getElementById('btn_rot_holdL').onmouseup=()=>rotDir=0;
+    document.getElementById('btn_rot_holdR').onmousedown=()=>rotDir=1;
+    document.getElementById('btn_rot_holdR').onmouseup=()=>rotDir=0;
+
+    (function animate(){
+      requestAnimationFrame(animate); stars.update(); controls.update();
+      if(selected&&rotDir!==0){
+        selected.rotation[ROT_AXIS]+=0.05*rotDir;
+        const d=Math.round(THREE.MathUtils.radToDeg(selected.rotation[ROT_AXIS]));
+        rotSlider.value=d; rotDegEl.textContent=d+'°'; if(helper)helper.update();
+      }
+      renderer.render(scene,camera);
+    })();
   </script>
 </body>
 </html>
